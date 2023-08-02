@@ -1,4 +1,4 @@
-package io.github.amirisback.todolist
+package io.github.amirisback.todolist.mvvm.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

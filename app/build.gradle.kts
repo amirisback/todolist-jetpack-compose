@@ -21,6 +21,15 @@ android {
             useSupportLibrary = true
         }
 
+        // Naming APK // AAB
+        setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}-${versionCode}")
+
+        buildConfigField("String", "NAME_APP", "\"${ProjectSetting.NAME_APP}\"")
+
+        // Declaration build config
+        buildConfigField("String", "DB_ROOM", "\"${ProjectSetting.DB}\"")
+        buildConfigField("String", "PREF_NAME", "\"${ProjectSetting.PREF_NAME}\"")
+
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas") // If Using Ksp
         }

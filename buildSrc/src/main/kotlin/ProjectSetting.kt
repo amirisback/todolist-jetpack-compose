@@ -33,6 +33,9 @@ object ProjectSetting {
     const val PROJECT_NAME_SPACE = "io.github.amirisback.todolist"
     const val PROJECT_APP_ID = "io.github.amirisback.todolist"
 
+    val DB = "db_${PROJECT_NAME_SPACE.replace(".", "_")}.db"
+    val PREF_NAME = "PREF_${PROJECT_NAME_SPACE.replace(".", "_").uppercase()}"
+
     // ---------------------------------------------------------------------------------------------
 
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
