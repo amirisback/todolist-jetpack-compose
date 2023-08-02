@@ -5,15 +5,15 @@ plugins {
 
 android {
 
-    namespace = "io.github.amirisback.todolist"
-    compileSdk = 33
+    namespace = ProjectSetting.PROJECT_NAME_SPACE
+    compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
 
     defaultConfig {
-        applicationId = "io.github.amirisback.todolist"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectSetting.PROJECT_APP_ID
+        minSdk = ProjectSetting.PROJECT_MIN_SDK
+        targetSdk = ProjectSetting.PROJECT_TARGET_SDK
+        versionCode = ProjectSetting.PROJECT_VERSION_CODE
+        versionName = ProjectSetting.PROJECT_VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -59,6 +59,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
     implementation("androidx.activity:activity-compose:1.7.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
