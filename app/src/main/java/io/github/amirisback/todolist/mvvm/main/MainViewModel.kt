@@ -1,4 +1,7 @@
-package io.github.amirisback.todolist.common.base
+package io.github.amirisback.todolist.mvvm.main
+
+import io.github.amirisback.todolist.common.base.CoreViewModel
+import io.github.amirisback.todolist.repository.note.NoteRepositoryImpl
 
 /**
  * Created by Amir on 08/02/23
@@ -13,5 +16,9 @@ package io.github.amirisback.todolist.common.base
  *
  */
 
-class BaseActivity {
+class MainViewModel(
+    private val repository: NoteRepositoryImpl
+) : CoreViewModel() {
+
+
 }

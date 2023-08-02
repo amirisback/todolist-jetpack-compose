@@ -3,6 +3,9 @@ package io.github.amirisback.todolist.repository.note
 import io.github.amirisback.todolist.common.base.CoreRepositoryImpl
 import io.github.amirisback.todolist.common.callback.DataResponseCallback
 import io.github.amirisback.todolist.common.callback.StateResponseCallback
+import io.github.amirisback.todolist.common.ext.executeRoomDB
+import io.github.amirisback.todolist.common.ext.fetchRoomDB
+import io.github.amirisback.todolist.data.dao.NoteDao
 import io.github.amirisback.todolist.model.Note
 
 /**
@@ -18,20 +21,22 @@ import io.github.amirisback.todolist.model.Note
  *
  */
 
-class NoteRepositoryImpl(
-    private val sourceLocal: NoteSourceLocal
+class NoteSourceLocal(
+    private val noteDao: NoteDao
 ) : CoreRepositoryImpl(), NoteRepository {
 
     override fun insertNote(data: Note, callback: StateResponseCallback) {
-        sourceLocal.insertNote(data, callback)
+        noteDao.insert(data).executeRoomDB(callback)
     }
 
     override fun searchNotes(query: String, callback: DataResponseCallback<List<Note>>) {
-        sourceLocal.searchNotes(query, callback)
+        noteDao.getsByTitle(query).fetchRoomDB(callback) {
+            addSubscribe(it)
+        }
     }
 
     override fun nukeNotes(callback: StateResponseCallback) {
-        sourceLocal.nukeNotes(callback)
+        noteDao.nukes().executeRoomDB(callback)
     }
 
 }

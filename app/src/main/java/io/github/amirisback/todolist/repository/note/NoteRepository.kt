@@ -21,8 +21,6 @@ interface NoteRepository {
 
     // Room Database -------------------------------------------------------------------------------
     // Save
-    fun insertNotes(data: List<Note>, callback: StateResponseCallback)
-
     fun insertNote(data: Note, callback: StateResponseCallback)
 
     fun searchNotes(query: String, callback: DataResponseCallback<List<Note>>)

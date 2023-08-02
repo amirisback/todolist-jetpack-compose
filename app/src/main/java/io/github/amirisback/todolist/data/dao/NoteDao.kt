@@ -34,8 +34,6 @@ interface NoteDao {
     @Query("SELECT * FROM ${Constant.RoomDatabase.TABLE_NOTE} WHERE title LIKE '%' || :search || '%' ORDER BY id DESC")
     fun getsByTitle(search: String): Single<List<Note>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun inserts(articles: List<Note>): Completable
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(article: Note): Completable

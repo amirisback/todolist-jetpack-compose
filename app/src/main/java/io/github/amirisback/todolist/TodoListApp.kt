@@ -3,6 +3,7 @@ package io.github.amirisback.todolist
 import android.app.Application
 import android.content.Context
 import io.github.amirisback.todolist.common.ext.APP_IS_DEBUG
+import io.github.amirisback.todolist.di.delegateModule
 import io.github.amirisback.todolist.di.repositoryModule
 import io.github.amirisback.todolist.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -24,7 +25,7 @@ import org.koin.core.logger.Level
  *
  */
 
-class TodoListApp: Application() {
+class TodoListApp : Application() {
 
     companion object {
         val TAG: String = TodoListApp::class.java.simpleName
@@ -52,7 +53,13 @@ class TodoListApp: Application() {
     }
 
     private fun setupKoinModule(koinApplication: KoinApplication) {
-        koinApplication.modules(listOf(repositoryModule, viewModelModule))
+        koinApplication.modules(
+            listOf(
+                delegateModule,
+                repositoryModule,
+                viewModelModule
+            )
+        )
     }
 
 }

@@ -1,8 +1,6 @@
-package io.github.amirisback.todolist.di
+package io.github.amirisback.todolist.common.base
 
-import io.github.amirisback.todolist.mvvm.main.MainViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import androidx.activity.ComponentActivity
 
 /**
  * Created by Amir on 08/02/23
@@ -17,10 +15,5 @@ import org.koin.dsl.module
  *
  */
 
-val viewModelModule = module {
-
-    viewModel {
-        MainViewModel(get())
-    }
-
+abstract class CoreActivity : ComponentActivity() {
 }

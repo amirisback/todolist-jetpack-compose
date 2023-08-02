@@ -1,8 +1,6 @@
-package io.github.amirisback.todolist.di
+package io.github.amirisback.todolist.common.base
 
-import io.github.amirisback.todolist.mvvm.main.MainViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import io.reactivex.rxjava3.disposables.Disposable
 
 /**
  * Created by Amir on 08/02/23
@@ -17,10 +15,10 @@ import org.koin.dsl.module
  *
  */
 
-val viewModelModule = module {
+interface CoreRepository {
 
-    viewModel {
-        MainViewModel(get())
-    }
+    fun onClearDisposables()
+
+    fun addSubscribe(disposable: Disposable)
 
 }

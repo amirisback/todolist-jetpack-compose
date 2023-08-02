@@ -1,6 +1,8 @@
 package io.github.amirisback.todolist.di
 
 import io.github.amirisback.todolist.data.local.ToDoDatabase
+import io.github.amirisback.todolist.repository.note.NoteRepositoryImpl
+import io.github.amirisback.todolist.repository.note.NoteSourceLocal
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -21,6 +23,14 @@ val repositoryModule = module {
 
     single {
         ToDoDatabase.newInstance(androidContext()).noteDao()
+    }
+
+    single {
+        NoteSourceLocal(get())
+    }
+
+    single {
+        NoteRepositoryImpl(get())
     }
 
 }
